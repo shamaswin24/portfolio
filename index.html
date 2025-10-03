@@ -1,180 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sham Aswin | Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-/* Global */
-* { margin:0; padding:0; box-sizing:border-box; scroll-behavior: smooth;}
-body { font-family:'Poppins', sans-serif; background:#0d0d0d; color:#fff; line-height:1.6;}
-a { text-decoration:none; color:inherit; }
-h1,h2,h3,h4,h5,h6 { font-weight:600; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sham Aswin | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #0d0d0d; color: #fff; }
+    a { text-decoration: none; }
 
-/* Navbar */
-header {
-  position:fixed; top:0; width:100%; display:flex; justify-content:space-between; align-items:center;
-  padding:15px 5%; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); z-index:1000;
-  box-shadow:0 5px 20px rgba(0,0,0,0.5);
-}
-header h1 { color:#6c63ff; font-size:26px; }
-nav a { margin:0 12px; position:relative; font-weight:500; }
-nav a::after { content:""; width:0; height:2px; background:#ff9800; position:absolute; left:0; bottom:-4px; transition:0.3s; }
-nav a:hover::after { width:100%; }
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 5%;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      flex-wrap: wrap;
+    }
+    header h1 { font-size: 26px; color: #6c63ff; font-weight: 700; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav a { margin: 10px 15px; color: #fff; font-weight: 500; position: relative; transition: 0.3s; }
+    nav a::after { content: ""; height: 2px; width: 0%; position: absolute; left: 0; bottom: -4px; background: #6c63ff; transition: 0.3s; }
+    nav a:hover::after { width: 100%; }
 
-/* Hero Section */
-.hero {
-  min-height:100vh; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
-  padding:0 5%; background:linear-gradient(135deg,#1c1c1c,#2e2e2e);
-}
-.hero-text { flex:1; min-width:280px; }
-.hero-text h3 { font-size:18px; color:#bbb; margin-bottom:10px; }
-.hero-text h1 { font-size:48px; line-height:1.2; margin-bottom:15px; }
-.hero-text h1 span { color:#6c63ff; }
-.hero-text h2 { font-size:24px; margin-bottom:20px; color:#ff9800; }
-.hero-text p { font-size:16px; margin-bottom:25px; color:#ccc; max-width:500px; }
-.hero-text .btn { display:inline-block; padding:12px 30px; border-radius:50px; background:linear-gradient(90deg,#6c63ff,#ff9800); font-weight:600; transition:0.3s; }
-.hero-text .btn:hover { transform:scale(1.05); box-shadow:0 10px 25px rgba(255,152,0,0.4);}
-.hero-img { flex:1; min-width:280px; text-align:center; }
-.hero-img img { width:100%; max-width:320px; border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.6); transition:0.5s; }
-.hero-img img:hover { transform:scale(1.05) rotate(2deg); }
+    /* Hero Section */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1c1c1c, #2e2e2e); padding: 0 5%; }
+    .hero-container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 50px; max-width: 1200px; width: 100%; }
+    .hero-text { flex: 1; min-width: 280px; }
+    .hero-text h3 { font-size: 18px; color: #bbb; margin-bottom: 10px; }
+    .hero-text h1 { font-size: 48px; font-weight: 700; margin-bottom: 15px; line-height: 1.1; }
+    .hero-text h1 span { color: #6c63ff; }
+    .hero-text h2 { font-size: 22px; margin-bottom: 20px; }
+    .hero-text h2 span { color: #ff9800; font-weight: 700; }
+    .hero-text p { font-size: 16px; max-width: 500px; margin-bottom: 25px; color: #ddd; }
+    .social-links a { font-size: 20px; margin-right: 12px; transition: 0.3s; display: inline-block; }
+    .social-links a:hover { transform: translateY(-5px) scale(1.2); color: #6c63ff; }
+    .btn { padding: 12px 25px; border-radius: 50px; background: linear-gradient(90deg,#6c63ff,#ff9800); font-weight: 600; color: #fff; transition: 0.3s; display: inline-block; }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,152,0,0.4); }
 
-/* Sections */
-section { padding:100px 5%; }
-section h2 { text-align:center; font-size:36px; margin-bottom:50px; color:#6c63ff; }
-section h2 span { color:#ff9800; }
+    .hero-img { flex: 1; min-width: 280px; text-align: center; }
+    .hero-img img { width: 100%; max-width: 320px; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.6); transition: 0.5s; }
+    .hero-img img:hover { transform: scale(1.05) rotate(2deg); }
 
-/* About */
-.about-container { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:40px; max-width:1200px; margin:0 auto; }
-.about-left, .about-right { flex:1; min-width:280px; }
-.about-left p { color:#ccc; line-height:1.6; margin-top:15px; }
-.logo-grid { display:flex; justify-content:center; flex-wrap:wrap; gap:20px; margin-top:20px; }
-.logo-grid img { width:50px; filter:drop-shadow(0 0 5px #6c63ff); transition:0.3s; }
-.logo-grid img:hover { transform:scale(1.2); }
+    /* Sections */
+    section { padding: 100px 5%; }
+    section h2 { text-align: center; font-size: 32px; margin-bottom: 50px; color: #6c63ff; }
 
-/* Skills */
-.skills-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:25px; max-width:1200px; margin:0 auto; }
-.skill { background:rgba(255,255,255,0.05); padding:25px; border-radius:20px; text-align:center; backdrop-filter:blur(10px); transition:0.3s; }
-.skill:hover { transform:translateY(-8px); box-shadow:0 15px 30px rgba(108,99,255,0.3);}
-.skill h3 { color:#ff9800; margin-bottom:10px; }
-.skill p { color:#ccc; line-height:1.6; }
+    /* About Section */
+    .about-container { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 50px; max-width: 1200px; margin: 0 auto; }
+    .about-left { flex: 1; min-width: 280px; }
+    .about-left h2 { font-size: 36px; margin-bottom: 20px; }
+    .about-left h2 span { color: #ff9800; }
+    .about-left h3 { font-size: 22px; margin-bottom: 20px; }
+    .about-left p { font-size: 16px; line-height: 1.8; color: #ccc; }
+    .about-right { flex: 1; min-width: 280px; text-align: center; }
+    .logo-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; }
+    .logo-grid img { width: 50px; filter: drop-shadow(0 0 5px #6c63ff); transition: 0.3s; }
+    .logo-grid img:hover { transform: scale(1.2); }
 
-/* Projects */
-.projects-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:25px; max-width:1200px; margin:0 auto; }
-.project { background:rgba(255,255,255,0.05); padding:20px; border-radius:20px; backdrop-filter:blur(10px); transition:0.3s; }
-.project:hover { transform:translateY(-8px); box-shadow:0 15px 30px rgba(255,152,0,0.3); }
-.project h3 { color:#ff9800; margin-bottom:10px; }
-.project p { color:#ccc; line-height:1.6; }
+    /* Skills & Projects */
+    .skills-container, .projects-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; }
+    .skill, .project { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 30px; backdrop-filter: blur(10px); transition: 0.3s; }
+    .skill:hover, .project:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(255,152,0,0.3); }
+    .skill h3, .project h3 { margin-bottom: 15px; color: #ff9800; font-size: 20px; }
+    .skill p, .project p { color: #ccc; line-height: 1.6; font-size: 15px; }
 
-/* Contact */
-.contact-form { display:flex; flex-direction:column; gap:15px; max-width:600px; margin:0 auto; }
-.contact-form input, .contact-form textarea { padding:12px; border-radius:10px; border:none; outline:none; background:rgba(255,255,255,0.05); color:#fff;}
-.contact-form input::placeholder, .contact-form textarea::placeholder { color:#bbb; }
-.contact-form button { padding:12px 25px; border:none; border-radius:50px; background:linear-gradient(90deg,#6c63ff,#ff9800); font-weight:600; cursor:pointer; transition:0.3s; }
-.contact-form button:hover { transform:scale(1.05); }
+    /* Contact */
+    .contact-form { display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto; }
+    .contact-form input, .contact-form textarea { padding: 15px; border-radius: 10px; border: none; outline: none; background: rgba(255,255,255,0.05); color: #fff; font-size: 15px; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: #bbb; }
+    .contact-form button { align-self: flex-start; background: linear-gradient(90deg,#6c63ff,#ff9800); border:none; padding: 12px 30px; border-radius: 50px; color: #fff; font-weight: 600; cursor:pointer; transition: 0.3s; }
+    .contact-form button:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,152,0,0.4); }
 
-/* Footer */
-footer { text-align:center; padding:20px; background:#111; font-size:14px;}
-footer span { color:#6c63ff; }
+    /* Footer */
+    footer { text-align: center; padding: 25px 5%; background: #111; font-size: 14px; margin-top: 50px; }
+    footer span { color: #6c63ff; }
 
-/* Responsive */
-@media(max-width:1024px){
-  .hero-text h1{font-size:42px;}
-  .hero-text h2{font-size:20px;}
-}
-@media(max-width:768px){
-  header { flex-direction:column; }
-  nav { margin-top:10px; }
-  .hero-container, .about-container { flex-direction:column; text-align:center; }
-  .hero-img img{ max-width:220px; }
-}
-@media(max-width:480px){
-  .hero-text h1{ font-size:28px; }
-  .hero-text h2{ font-size:16px; }
-  .hero-img img{ max-width:180px; }
-  .skill p, .project p, .about-left p{ font-size:14px; }
-  nav a{ margin:5px 8px; font-size:14px; }
-  header h1{ font-size:20px; }
-}
-</style>
+    /* Typing animation */
+    .typing { border-right: 2px solid #fff; display: inline; }
+
+    /* Responsive Media Queries */
+    @media(max-width:1024px){
+      .hero-text h1 { font-size: 42px; }
+      .hero-text h2 { font-size: 20px; }
+    }
+    @media(max-width:768px){
+      header { padding: 15px 3%; flex-direction: column; }
+      nav { justify-content: center; }
+      .hero-container, .about-container { flex-direction: column; text-align: center; }
+      .hero-text h1 { font-size: 36px; }
+      .hero-text h2 { font-size: 18px; }
+      .hero-img img { max-width: 250px; }
+      section { padding: 70px 3%; }
+      .skill h3, .project h3 { font-size: 18px; }
+    }
+    @media(max-width:480px){
+      .hero-text h1 { font-size: 28px; }
+      .hero-text h2 { font-size: 16px; }
+      .hero-img img { max-width: 200px; }
+      .skill p, .project p, .about-left p { font-size: 14px; }
+      nav a { margin: 8px 10px; font-size: 14px; }
+      header h1 { font-size: 22px; }
+    }
+  </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <header>
   <h1>Sham Aswin</h1>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero" id="home">
-  <div class="hero-text">
-    <h3>Hello, I'm</h3>
-    <h1><span>Sham Aswin</span></h1>
-    <h2>I'm a <span class="typing">Data Analyst</span></h2>
-    <p>Data Analyst skilled in SQL, Power BI, Python. I turn raw data into actionable insights and dashboards for business growth.</p>
-    <a href="#" class="btn">Download Resume</a>
-  </div>
-  <div class="hero-img">
-    <img src="2F0A2496.JPG" alt="Sham Aswin">
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-container">
+    <div class="hero-text">
+      <h3>Hello, I'm</h3>
+      <h1><span>Sham Aswin</span></h1>
+      <h2>I'm a <span class="typing"></span></h2>
+      <p>
+        I am a Data Analyst skilled in SQL, Power BI, and Python, with experience turning complex datasets into clear insights that drive business growth. 
+        I specialize in dashboard development, data visualization, and predictive analytics. Passionate about data storytelling and problem-solving.
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/sham-aswin" target="_blank">🔗</a>
+        <a href="https://github.com/" target="_blank">💻</a>
+        <a href="mailto:s.shamaswin2414@gmail.com">✉️</a>
+      </div>
+      <a href="#" class="btn">Download Resume</a>
+    </div>
+    <div class="hero-img">
+      <img src="2F0A2496.JPG" alt="Sham Aswin" />
+    </div>
   </div>
 </section>
 
+<!-- About Section -->
 <section id="about">
   <h2>About <span>Me</span></h2>
   <div class="about-container">
     <div class="about-left">
       <h3>Data Analyst & AI Enthusiast</h3>
-      <p>I transform data into actionable insights using Python, SQL, and Power BI. Experienced in dashboard creation, predictive analytics, and problem-solving.</p>
+      <p>
+        I turn data into actionable insights using Python, SQL, and Power BI. Experienced in dashboard creation, predictive analytics, and problem-solving.
+        Eager to leverage data science and machine learning for innovation and measurable results.
+      </p>
     </div>
     <div class="about-right">
       <h3>Skills & Tools</h3>
       <div class="logo-grid">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQL">
-        <img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI">
-        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQL"/>
+        <img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI"/>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Skills Section -->
 <section id="skills">
   <h2>My <span>Skills</span></h2>
   <div class="skills-container">
-    <div class="skill"><h3>Python</h3><p>Data analysis, automation, ML.</p></div>
-    <div class="skill"><h3>SQL</h3><p>Database querying & optimization.</p></div>
-    <div class="skill"><h3>Power BI</h3><p>Dashboards & visualization.</p></div>
-    <div class="skill"><h3>Machine Learning</h3><p>Predictive analytics & modeling.</p></div>
+    <div class="skill">
+      <h3>Python</h3>
+      <p>Data analysis, visualization, automation, and machine learning.</p>
+    </div>
+    <div class="skill">
+      <h3>SQL</h3>
+      <p>Database querying, management, and optimization for actionable insights.</p>
+    </div>
+    <div class="skill">
+      <h3>Power BI</h3>
+      <p>Interactive dashboards and data storytelling for decision making.</p>
+    </div>
+    <div class="skill">
+      <h3>Machine Learning</h3>
+      <p>Predictive analytics and model building for business problem solving.</p>
+    </div>
   </div>
 </section>
 
+<!-- Experience Section -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="projects-container">
+    <div class="project">
+      <h3>Intern - L&T Technology Services</h3>
+      <p><strong>Location:</strong> Bangalore</p>
+      <p><strong>Duration:</strong> March 2025 - June 2025</p>
+      <p>Completed an internship focused on applying Machine Learning and problem-solving skills in a professional environment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
 <section id="projects">
   <h2>My <span>Projects</span></h2>
   <div class="projects-container">
-    <div class="project"><h3>AI Story Generator</h3><p>Built web app using local LLMs via Ollama API for interactive storytelling.</p></div>
-    <div class="project"><h3>Warehouse Monitoring</h3><p>Streamlit dashboard to monitor warehouse and predict spoilage using XGBoost.</p></div>
+    <div class="project">
+      <h3>AI-Powered Storytelling Generator</h3>
+      <p>
+        Built a web application for interactive story generation using local LLMs through Ollama API. Implemented prompt chaining and dynamic context management for coherent storytelling. Deployed local inference to optimize latency and enhance performance.
+      </p>
+    </div>
+    <div class="project">
+      <h3>Warehouse Environment Monitoring & Spoilage Risk Prediction</h3>
+      <p>
+        Developed a Streamlit dashboard to monitor warehouse conditions and predict spoilage risks using XGBoost. Automated risk-level predictions and dynamically adjusted sensor values to optimize storage conditions.
+      </p>
+    </div>
   </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
-  <h2>Contact <span>Me</span></h2>
+  <h2>Contact <span>Me!</span></h2>
   <form class="contact-form" action="https://formspree.io/f/mnngdrbl" method="POST">
     <input type="text" name="Full Name" placeholder="Full Name" required>
-    <input type="email" name="Email" placeholder="Email" required>
+    <input type="email" name="Email" placeholder="Email Address" required>
     <input type="text" name="Mobile" placeholder="Mobile Number" required>
     <input type="text" name="Subject" placeholder="Subject" required>
-    <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+    <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
     <button type="submit">Send Message</button>
   </form>
 </section>
 
-<footer>&copy; 2025 <span>Sham Aswin</span>. All rights reserved.</footer>
+<!-- Footer -->
+<footer>
+  &copy; 2025 <span>Sham Aswin</span>. All rights reserved.
+</footer>
+
+<script>
+  // Simple typing effect
+  const texts = ["Data Analyst", "Problem Solver", "ML Enthusiast"];
+  let count = 0;
+  let index = 0;
+  let currentText = '';
+  let letter = '';
+  (function type(){
+    if(count === texts.length) count = 0;
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+    document.querySelector('.typing').textContent = letter;
+    if(letter.length === currentText.length){
+      setTimeout(() => { index = 0; count++; type(); }, 2000);
+    } else {
+      setTimeout(type, 150);
+    }
+  }());
+</script>
 
 </body>
 </html>
